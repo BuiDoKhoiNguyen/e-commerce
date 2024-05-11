@@ -18,7 +18,7 @@ const HomeSectionCarousel = ({data, sectionName}) => {
     const slidePrev = () => setActiveIndex(activeIndex - 1)
     const slideNext = () => setActiveIndex(activeIndex + 1)
     const syncActiveIndex = ({ item }) => setActiveIndex(item)
-    const items = [1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => <HomeSectionCard />)
+    const items = data.map((item) => <HomeSectionCard product={item} />)
 
     return (
         <div className='border'>

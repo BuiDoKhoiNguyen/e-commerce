@@ -1,10 +1,10 @@
 import React from 'react'
 
-const HomeSectionCard = () => {
+const HomeSectionCard = ({product}) => {
   return (
     <div className='cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-xl overflow-hidden w-[15rem] mx-3 border'>
         <div className='h-[13rem] w-[10rem]'>
-            <img className='w-full h-full object-cover object-top' src='https://media1.calvinklein.com/images/20240423/HP/Spring_1_2x.webp' alt="" />
+            <img className='w-full h-full object-cover object-top' src={product.imageUrl} alt="" />
         </div>
 
         <div className='p-4'>
