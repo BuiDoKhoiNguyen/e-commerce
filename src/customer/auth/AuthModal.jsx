@@ -1,6 +1,8 @@
 import React from 'react'
-import { Box, Modal, Typography } from '@mui/material'
+import { Box, Modal } from '@mui/material'
 import RegisterForm from './RegisterForm';
+import LoginForm from './LoginForm';
+import { useLocation } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -12,14 +14,12 @@ const style = {
     outline: 'none',
     boxShadow: 24,
     p: 4,
-  };
+};
 
-const AuthModal = ({handleClose, open}) => {
+const AuthModal = ({ handleClose, open }) => {
+    const location = useLocation()
     return (
         <div>
-            <Box sx={style}>
-                <RegisterForm />
-            </Box>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -27,10 +27,10 @@ const AuthModal = ({handleClose, open}) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+                    {location.pathname === '/login' ? <LoginForm /> : <RegisterForm />}
+
                 </Box>
+
             </Modal>
         </div>
     )
